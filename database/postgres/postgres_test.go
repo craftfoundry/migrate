@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/golang-migrate/migrate/v4"
+	"github.com/craftfoundry/migrate/v4"
 	"io"
 	"strconv"
 	"strings"
@@ -18,10 +18,10 @@ import (
 
 	"github.com/dhui/dktest"
 
-	"github.com/golang-migrate/migrate/v4/database"
-	dt "github.com/golang-migrate/migrate/v4/database/testing"
-	"github.com/golang-migrate/migrate/v4/dktesting"
-	_ "github.com/golang-migrate/migrate/v4/source/file"
+	"github.com/craftfoundry/migrate/v4/database"
+	dt "github.com/craftfoundry/migrate/v4/database/testing"
+	"github.com/craftfoundry/migrate/v4/dktesting"
+	_ "github.com/craftfoundry/migrate/v4/source/file"
 )
 
 const (

@@ -8,9 +8,9 @@ import (
 	"io/ioutil"
 	nurl "net/url"
 
+	"github.com/craftfoundry/migrate/v4"
+	"github.com/craftfoundry/migrate/v4/database"
 	mssql "github.com/denisenkom/go-mssqldb" // mssql support
-	"github.com/golang-migrate/migrate/v4"
-	"github.com/golang-migrate/migrate/v4/database"
 	"github.com/hashicorp/go-multierror"
 )
 
@@ -241,7 +241,7 @@ func (ss *SQLServer) SetVersion(version int, dirty bool) error {
 
 	// Also re-write the schema version for nil dirty versions to prevent
 	// empty schema version for failed down migration on the first migration
-	// See: https://github.com/golang-migrate/migrate/issues/330
+	// See: https://github.com/craftfoundry/migrate/issues/330
 	if version >= 0 || (version == database.NilVersion && dirty) {
 		var dirtyBit int
 		if dirty {

@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/golang-migrate/migrate/v4"
-	"github.com/golang-migrate/migrate/v4/database"
-	"github.com/golang-migrate/migrate/v4/database/multistmt"
+	"github.com/craftfoundry/migrate/v4"
+	"github.com/craftfoundry/migrate/v4/database"
+	"github.com/craftfoundry/migrate/v4/database/multistmt"
 	"github.com/hashicorp/go-multierror"
 )
 

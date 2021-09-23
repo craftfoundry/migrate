@@ -1,3 +1,4 @@
+//go:build go1.9
 // +build go1.9
 
 package mysql
@@ -21,7 +22,7 @@ import (
 )
 
 import (
-	"github.com/golang-migrate/migrate/v4/database"
+	"github.com/craftfoundry/migrate/v4/database"
 )
 
 func init() {
@@ -121,7 +122,7 @@ func urlToMySQLConfig(url string) (*mysql.Config, error) {
 	// Need to parse out custom TLS parameters and call
 	// mysql.RegisterTLSConfig() before mysql.ParseDSN() is called
 	// which consumes the registered tls.Config
-	// Fixes: https://github.com/golang-migrate/migrate/issues/411
+	// Fixes: https://github.com/craftfoundry/migrate/issues/411
 	//
 	// Can't use url.Parse() since it fails to parse MySQL DSNs
 	// mysql.ParseDSN() also searches for "?" to find query parameters:
@@ -339,7 +340,7 @@ func (m *Mysql) SetVersion(version int, dirty bool) error {
 
 	// Also re-write the schema version for nil dirty versions to prevent
 	// empty schema version for failed down migration on the first migration
-	// See: https://github.com/golang-migrate/migrate/issues/330
+	// See: https://github.com/craftfoundry/migrate/issues/330
 	if version >= 0 || (version == database.NilVersion && dirty) {
 		query := "INSERT INTO `" + m.config.MigrationsTable + "` (version, dirty) VALUES (?, ?)"
 		if _, err := tx.ExecContext(context.Background(), query, version, dirty); err != nil {

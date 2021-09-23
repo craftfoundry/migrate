@@ -4,10 +4,10 @@
 
 ### Download pre-built binary (Windows, MacOS, or Linux)
 
-[Release Downloads](https://github.com/golang-migrate/migrate/releases)
+[Release Downloads](https://github.com/craftfoundry/migrate/releases)
 
 ```bash
-$ curl -L https://github.com/golang-migrate/migrate/releases/download/$version/migrate.$platform-amd64.tar.gz | tar xvz
+$ curl -L https://github.com/craftfoundry/migrate/releases/download/$version/migrate.$platform-amd64.tar.gz | tar xvz
 ```
 
 ### MacOS
@@ -24,7 +24,7 @@ Using [scoop](https://scoop.sh/)
 $ scoop install migrate
 ```
 
-### Linux (*.deb package)
+### Linux (\*.deb package)
 
 ```bash
 $ curl -L https://packagecloud.io/golang-migrate/migrate/gpgkey | apt-key add -
@@ -38,30 +38,30 @@ $ apt-get install -y migrate
 #### Versioned
 
 ```bash
-$ go get -u -d github.com/golang-migrate/migrate/cmd/migrate
-$ cd $GOPATH/src/github.com/golang-migrate/migrate/cmd/migrate
+$ go get -u -d github.com/craftfoundry/migrate/cmd/migrate
+$ cd $GOPATH/src/github.com/craftfoundry/migrate/cmd/migrate
 $ git checkout $TAG  # e.g. v4.1.0
-$ go build -tags 'postgres' -ldflags="-X main.Version=$(git describe --tags)" -o $GOPATH/bin/migrate $GOPATH/src/github.com/golang-migrate/migrate/cmd/migrate
+$ go build -tags 'postgres' -ldflags="-X main.Version=$(git describe --tags)" -o $GOPATH/bin/migrate $GOPATH/src/github.com/craftfoundry/migrate/cmd/migrate
 ```
 
 #### Unversioned
 
 ```bash
-$ go get -tags 'postgres' -u github.com/golang-migrate/migrate/cmd/migrate
+$ go get -tags 'postgres' -u github.com/craftfoundry/migrate/cmd/migrate
 ```
 
-[Make sure](https://github.com/golang-migrate/migrate/pull/257#issuecomment-705249902) you're not installing the `migrate` CLI from a module. e.g. there should not be any `go.mod` files in your current directory or any directory from your current one to the root
+[Make sure](https://github.com/craftfoundry/migrate/pull/257#issuecomment-705249902) you're not installing the `migrate` CLI from a module. e.g. there should not be any `go.mod` files in your current directory or any directory from your current one to the root
 
 #### Notes
 
 1. Requires a version of Go that [supports modules](https://golang.org/cmd/go/#hdr-Preliminary_module_support). e.g. Go 1.11+
-1. These examples build the cli which will only work with postgres.  In order
-to build the cli for use with other databases, replace the `postgres` build tag
-with the appropriate database tag(s) for the databases desired.  The tags
-correspond to the names of the sub-packages underneath the
-[`database`](../database) package.
+1. These examples build the cli which will only work with postgres. In order
+   to build the cli for use with other databases, replace the `postgres` build tag
+   with the appropriate database tag(s) for the databases desired. The tags
+   correspond to the names of the sub-packages underneath the
+   [`database`](../database) package.
 1. Similarly to the database build tags, if you need to support other sources, use the appropriate build tag(s).
-1. Support for build constraints will be removed in the future: https://github.com/golang-migrate/migrate/issues/60
+1. Support for build constraints will be removed in the future: https://github.com/craftfoundry/migrate/issues/60
 
 ## Usage
 
